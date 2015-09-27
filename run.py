@@ -60,7 +60,7 @@ df2.pt_ratio.plot(ax=ax2, kind="barh", color=sns.color_palette()[1])
 ax1.set_ylabel("")
 ax2.set_ylabel("")
 ax1.set_xlabel("Threads")
-ax2.set_xlabel("Posts/threads")
+ax2.set_xlabel("Posts/thread")
 fig.tight_layout()
 
 if not os.path.isdir("figures"):
