@@ -55,7 +55,7 @@ df2 = df2.drop("posts", 1)
 fig, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, figsize=(7.5, 3), sharey=True)
 
 df2.threads.plot(ax=ax1, kind="barh")
-df2.pt_ratio.plot(ax=ax2, kind="barh", color=sns.color_palette()[2])
+df2.pt_ratio.plot(ax=ax2, kind="barh", color=sns.color_palette()[1])
 
 ax1.set_ylabel("")
 ax2.set_ylabel("")
@@ -67,5 +67,6 @@ if not os.path.isdir("figures"):
     os.mkdir("figures")
 
 fig.savefig("figures/cfd-online.pdf")
+fig.savefig("figures/cfd-online.png")
 
 plt.show()
