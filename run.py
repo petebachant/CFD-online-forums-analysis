@@ -1,14 +1,9 @@
-
 # coding: utf-8
-
-# # CFD-Online community analysis
-# 
-# In this notebook we will examine the most popular CFD software forums on CFD-online.com. 
-
-# In[ ]:
+"""
+Examining the most popular CFD software forums on CFD-online.com.
+"""
 
 import matplotlib.pyplot as plt
-get_ipython().magic('matplotlib inline')
 import seaborn as sns
 from pxl.styleplot import set_sns
 set_sns()
@@ -19,6 +14,7 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import os
+
 
 soup = BeautifulSoup(requests.get("http://cfd-online.com/Forums/").text, "lxml")
 
@@ -52,9 +48,6 @@ for forum in forums:
 df = df.set_index("forum")
 df["pt_ratio"] = df.posts/df.threads
 
-
-# In[ ]:
-
 # Create a slice of that DataFrame for only the most popular forums
 df2 = df[df.posts > 1e4].sort("posts")
 df2 = df2.drop("posts", 1)
@@ -76,4 +69,3 @@ if not os.path.isdir("figures"):
 fig.savefig("figures/cfd-online.pdf")
 
 plt.show()
-
